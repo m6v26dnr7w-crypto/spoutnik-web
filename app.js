@@ -70,5 +70,47 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+/* ==================================================
+   04. Image Modal
+================================================== */
 
+const slides = document.querySelectorAll(".embla__slide img");
+const modal = document.querySelector(".ls-modal");
+const modalImage = document.querySelector(".ls-modal-image");
+const modalClose = document.querySelector(".ls-modal-close");
+
+slides.forEach(slide => {
+
+  slide.addEventListener("click", () => {
+
+    modalImage.src = slide.src;
+    modalImage.alt = slide.alt;
+
+    modal.classList.add("open");
+
+  });
+
+});
+
+if (modalClose) {
+
+  modalClose.addEventListener("click", () => {
+
+    modal.classList.remove("open");
+
+  });
+
+}
+
+if (modal) {
+
+  modal.addEventListener("click", (e) => {
+
+    if (e.target === modal) {
+      modal.classList.remove("open");
+    }
+
+  });
+
+}
 });
